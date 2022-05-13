@@ -3,11 +3,10 @@ import { Document } from 'mongoose';
 
 export type AuthModelDocument = AuthModel & Document;
 
-export class tst2 {
-  @Prop()
-  name: string;
-  @Prop()
-  value: string;
+export enum en1 {
+  first,
+  second,
+  tret = 9,
 }
 
 @Schema({ timestamps: true })
@@ -16,8 +15,8 @@ export class AuthModel {
   email: string;
   @Prop()
   passwordHash: string;
-  @Prop({ _id: false })
-  tst: [tst2];
+  @Prop()
+  enel: en1;
 }
 
 export const AuthModelSchema = SchemaFactory.createForClass(AuthModel);

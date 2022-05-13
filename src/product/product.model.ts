@@ -1,7 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document } from 'mongoose';
 
-
 class ProductCharacteristics {
   @Prop()
   name: string;
@@ -35,7 +34,7 @@ export class ProductModel {
   categories: string[];
   @Prop()
   tags: string[];
-  characteristics: [ProductCharacteristics];
+  characteristics: ProductCharacteristics[];
 }
 
 export const ProductModelSchema = SchemaFactory.createForClass(ProductModel);

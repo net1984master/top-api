@@ -1,14 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
-import { ReviewModel, ReviewModelDocument } from './review.model';
-import { Model } from 'mongoose';
+import { ReviewModelDocument } from './review.model';
 import { CreateReviewDto } from './dto/create-review.dto';
+import { ReviewRepository } from './review.repository';
 
 @Injectable()
 export class ReviewService {
-  constructor(@InjectModel(ReviewModel.name) private readonly reviewModel: Model<ReviewModelDocument>) {}
-  async create(dto: CreateReviewDto) {
-    const ret = await this.reviewModel.create(dto);
-    return ret;
+  constructor(private readonly reviewRepository: ReviewRepository) {}
+  async create(dto: CreateReviewDto): Promise<ReviewModelDocument> {
+    return this.reviewRepository.create(dto);
+  }
+
+  async delete(id: string): Promise<ReviewModelDocument | null> {
+    return this.reviewRepository.delete(id);
+  }
+
+  async findByProductId(productId: string): Promise<ReviewModelDocument[]> {
+    return this.reviewRepository.findByProductId(productId);
   }
 }
