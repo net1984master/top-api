@@ -15,8 +15,6 @@ export class ReviewModel {
   rating: number;
   @Prop()
   productId: Types.ObjectId;
-  // @Prop()
-  //  createdAt: Date;
 }
 
 export const ReviewModelSchema = SchemaFactory.createForClass(ReviewModel);
