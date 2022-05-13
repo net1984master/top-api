@@ -16,6 +16,10 @@ export class ReviewRepository {
     return this.reviewModel.findByIdAndDelete(id).exec();
   }
 
+  async deleteByProductId(productId: string) {
+    return this.reviewModel.deleteMany({ productId }).exec();
+  }
+
   async findByProductId(productId: string): Promise<ReviewModelDocument[]> {
     return this.reviewModel.find({ productId }).exec();
   }

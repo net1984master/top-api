@@ -14,7 +14,12 @@ export class ReviewService {
     return this.reviewRepository.delete(id);
   }
 
+  async deleteByProductId(productId: string) {
+    return this.reviewRepository.deleteByProductId(productId);
+  }
+
   async findByProductId(productId: string): Promise<ReviewModelDocument[]> {
     return this.reviewRepository.findByProductId(productId);
   }
+
 }
