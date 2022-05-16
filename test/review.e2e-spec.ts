@@ -70,5 +70,6 @@ describe('AppController (e2e)', () => {
 
   afterAll(() => {
     disconnect();
+    /**/
   });
 });
