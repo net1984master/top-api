@@ -1,16 +1,16 @@
 import { Injectable } from '@nestjs/common';
-import { ReviewModelDocument } from './review.model';
+import { ReviewModel} from './review.model';
 import { CreateReviewDto } from './dto/create-review.dto';
 import { ReviewRepository } from './review.repository';
 
 @Injectable()
 export class ReviewService {
   constructor(private readonly reviewRepository: ReviewRepository) {}
-  async create(dto: CreateReviewDto): Promise<ReviewModelDocument> {
+  async create(dto: CreateReviewDto): Promise<ReviewModel> {
     return this.reviewRepository.create(dto);
   }
 
-  async delete(id: string): Promise<ReviewModelDocument | null> {
+  async delete(id: string): Promise<ReviewModel | null> {
     return this.reviewRepository.delete(id);
   }
 
@@ -18,7 +18,7 @@ export class ReviewService {
     return this.reviewRepository.deleteByProductId(productId);
   }
 
-  async findByProductId(productId: string): Promise<ReviewModelDocument[]> {
+  async findByProductId(productId: string): Promise<ReviewModel[]> {
     return this.reviewRepository.findByProductId(productId);
   }
 

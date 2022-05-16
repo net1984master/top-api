@@ -8,11 +8,11 @@ import { CreateReviewDto } from './dto/create-review.dto';
 export class ReviewRepository {
   constructor(@InjectModel(ReviewModel.name) private readonly reviewModel: Model<ReviewModelDocument>) {}
 
-  async create(newReview: CreateReviewDto): Promise<ReviewModelDocument> {
+  async create(newReview: CreateReviewDto): Promise<ReviewModel> {
     return this.reviewModel.create(newReview);
   }
 
-  async delete(id: string): Promise<ReviewModelDocument | null> {
+  async delete(id: string): Promise<ReviewModel | null> {
     return this.reviewModel.findByIdAndDelete(id).exec();
   }
 
@@ -20,7 +20,7 @@ export class ReviewRepository {
     return this.reviewModel.deleteMany({ productId }).exec();
   }
 
-  async findByProductId(productId: string): Promise<ReviewModelDocument[]> {
+  async findByProductId(productId: string): Promise<ReviewModel[]> {
     return this.reviewModel.find({ productId }).exec();
   }
 }
