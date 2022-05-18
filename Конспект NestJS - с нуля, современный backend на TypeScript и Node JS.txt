@@ -290,3 +290,11 @@ https://stackoverflow.com/questions/57705716/how-to-throw-exception-using-nest-j
 *08:50 добавляем сервис JWT в модуль auth
 *10:20 делаем config функцию для передачи секрета
 *12:10 используем внедренный JWT сервис
+>>>4. JWT стратегия и Guard
+*0:15 для работы состратегиями авторизации есть библиотека passportjs
+*01:00 установим одну из стратегий npm i @nestjs/passport passport passport-jwt   ну и для тайпингов npm install --save @types/passport-jwt
+*02:00 начинаем работать со стратегией, импортируем в модуль auth модуль passport с попощью которого мы можем применять различные стратегии
+*02:30 создаём стратегию
+*07:20 делаем guard
+
+
