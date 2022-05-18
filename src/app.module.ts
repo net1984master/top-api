@@ -9,7 +9,6 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { getMongoConfig } from './configs/mongo.config';
 
-
 @Module({
   imports: [
     ConfigModule.forRoot(),
